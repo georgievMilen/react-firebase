@@ -20,10 +20,12 @@ function App() {
   return (
     <>
       {votes.map(({answers,question}) => {
-         console.log(question)
-         Object.keys(answers).map(a => console.log(answers[a].result))
+         console.log(question);
+         return(  <ul>
+         <li>{question}</li>
+         <li>{Object.keys(answers).map(a =>  answers[a].result).join(', ')}</li>
+        </ul>)
       })}
-      <div>asd</div>
     </>
   );
 }
