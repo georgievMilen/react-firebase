@@ -1,6 +1,6 @@
 
 import React from 'react';
-
+import BarExample from "./components/bar"
 import './App.css';
 import firebase from './firebase'
 
@@ -24,6 +24,7 @@ function App() {
          return(  <ul>
          <li>{question}</li>
          <li>{Object.keys(answers).map(a =>  answers[a].result).join(', ')}</li>
+         <BarExample />
         </ul>)
       })}
     </>
