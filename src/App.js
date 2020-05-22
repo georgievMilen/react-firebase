@@ -28,23 +28,16 @@ function App() {
     let answersData = answers;
     let optionsData = options;
 
-    // console.log(answersData);
-    //  console.log(optionsData)
-
-    // const answersToDiffQuestions = answers.map(answersToQuestion => {
-    //   answersToQuestion.map( answer =>  )
-    // })
-    const validAnswers = answersData.map((answersToQuestion) => {
-      return answersToQuestion.filter((answer) => {
-        return optionsData.map((a) => {
-          if (console.log(a.includes(answer))) return answer;
-          return false;
-        });
+    const validAnswers = answersData.map((answer) => {
+      if (Array.isArray(answer)) getVotesAmount(answer, optionsData);
+      return optionsData.map((a) => {
+        if (a.includes(answer)) return answer;
+        return false;
       });
     });
     console.log(validAnswers);
-    // console.log(validAnswers);
   }
+
   React.useEffect(() => {
     const fetchData = async () => {
       const db = firebase.firestore();
